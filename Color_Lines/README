@@ -1,0 +1,90 @@
+NAME: Rain Wu (Siyuan Wu), Hao Xuan
+ID #: 1586852              1537913
+CMPUT 274 Fall18
+
+Final Project: Colour Lines
+
+Included files:
+        *Color_lines.py
+        *README
+Project introduction:
+         Create a Python-based elimination game. There are 6 different color's
+         balls on a 9*9 board. Player can move one ball each time, the ball
+         can be moved to anywhere if no ball blocks its way. Each time the ball
+         is moved, 3 balls will be generated on the board (random color and random
+         position). When player connect 5 (or more than 5) same color balls on one line
+         (vertical, horizontal and diagonals are all available), the balls will be
+         eliminated, and no new ball will be generated in this time. When the balls
+         were eliminated, player will get score, each ball worth 10 score. When no
+         way to move any ball,the game will over.
+
+Running instruction:
+        1. When we run this game, a 9*9 map will be show and 3 balls will on the map.
+        2. Click a ball, which means you want to move this ball to another position.
+        3. Click another blank position, if no ball block the route, then move the clicked
+           ball to the blank position.
+        4. Trying to connect 5 or more than 5 same color balls in one line(row, column,
+             diagnals) to eliminate these balls. 2 score for each ball.
+        5. If the blank place less than 3, which means you can not move any ball, the screen
+           will show game over and quit.
+
+Notes and Assumption:
+    How to check the voild position:
+        def check_valid(mg, x, y)
+        def process(step)
+        def walk(mp, x, y, a, b)
+            These three functions are used for checking whether the position can be moved to another position.
+            we searched the method from internet. This will be used in class Game.
+        Will be used in class Game.
+
+    How to chenk the 5 or more than 5 balls connect in one line:
+        def rowcheck(matrix)
+            Checking all the rows.
+        def columncheck(matrix)
+            Checking all the column.
+        def left_sloping(matrix)
+            Checking all the left diaognals (from left top to right bottom)
+        def right_sloping(matrix)
+            Checking all the right diaognals (from right top to left bottom)
+        If there are 5 or more than 5 same color's ball, return these ball's position.
+        Will be used in class Game.
+
+
+    class Game:
+        def __init__(self):
+            This function set up the screen size, window colse condition, clock, mouse position, ball position
+            and record score.
+        def create_window(self):
+            Seteing up the window including drawing the grid and set the caption when the game started.
+        def play_game(self):
+            Providing the basic loop for the game including all the figures of the game
+            generate 3 random balls when the game started.
+        def events(self):
+            function events() contains a loop to detect all kinds of user action and make reaction
+        def single_event(self, event):
+            handling every single event for this program, we only need to consider two events.
+            QUIT means user close the window.
+        def draw_grid(self):
+            draw_grid() is used to draw the basic grid for the game.
+        def generate_ball(self):
+            generate_ball() generates 3 balls with random location and random chosen colors in empty spaces.
+            Creating an array to represent the blocks left empty.
+        def draw_ball(self):
+            This function is used for drawing all the balls according to ballmap and with the corresponding
+            color in colormap.
+            Clearing the screen.
+        def move_ball(self):
+            move_ball() function is able to move a ball to another position if it's able to reach there with
+            user mouse action(click).
+        def check_ball(self):
+            This function is used to check whether there are 5 balls in line by using columncheck(), rowcheck(), left_sloping(),right_sloping().
+        def end_game(self):
+            end_game() function checks for game over condition: less than 3 empty.
+        def text_objects(self, text, font)
+        def message_display(self, text, width, height, size)
+            These two functions are used for adding text in game.
+
+
+    def main():
+        Run our game.
+            
